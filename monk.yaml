@@ -1,0 +1,28 @@
+namespace: coreui-free-react-admin-template
+
+coreui-free-react-admin-template:
+  defines: runnable
+  metadata:
+    name: coreui-free-react-admin-template
+    description: A standalone frontend React application for admin dashboard templates.
+    icon: https://emojiapi.dev/api/v1/robot.svg
+  containers:
+    coreui-free-react-admin-template:
+      image: env-3265.registry.local/coreui-free-react-admin-template:v5-e506dd2
+      build: .
+      dockerfile: Dockerfile.coreui-free-react-admin-template
+  services:
+    react-dev-server:
+      description: Development server for React application
+      container: coreui-free-react-admin-template
+      port: 3000
+      host-port: 3000
+      publish: true
+      protocol: tcp
+  connections: {}
+  variables: {}
+
+stack:
+  defines: group
+  members:
+    - coreui-free-react-admin-template/coreui-free-react-admin-template
